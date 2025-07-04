@@ -1,4 +1,4 @@
-import { calendar_courses, aoc_courses } from './courses.js';
+import { calendar_courses, aoc_courses, yearMapping } from './courses.js';
 import { openToolsPopup, openAocPopup, openCompStudiesPopup, openColumnPopup } from './popups.js';
 
 const $ = id => document.getElementById(id);
@@ -57,11 +57,7 @@ function renderCalendar() {
     return box;
   };
 
-  [
-    { key: '1',   label: 'First Year' },
-    { key: '2',   label: 'Second Year' },
-    { key: '3/4', label: 'Third & Fourth Years' }
-  ].forEach(({ key, label }) => {
+  yearMapping.forEach(({ key, label }) => {
     const raw = calendar_courses[key] || [];
     const col = document.createElement('div');
     col.className = 'course-column';
@@ -73,40 +69,52 @@ function renderCalendar() {
         const group = document.createElement('div');
         group.className = 'choice-group';
         group.innerHTML = '<div class="choice-label">Choose one of:</div>';
+
         item.forEach(c => {
           const b = makeBox(c);
           if (b) group.appendChild(b);
         });
+
         if (group.querySelector('.course-box')) col.appendChild(group);
-      } else if (typeof item === 'string' && item.includes('Tools Elective')) {
+      }
+      
+      else if (typeof item === 'string' && item.includes('Tools Elective')) {
         const b = document.createElement('div');
         b.className = 'course-box';
         b.dataset.code = 'TOOLS_ELECTIVE';
         b.innerHTML = '<div class="course-title">Tools Elective</div><div class="course-desc">Click to see more information.</div>';
         b.addEventListener('click', () => openToolsPopup(makeBox));
         col.appendChild(b);
-      } else if (typeof item === 'string' && item.includes('Complementary Studies')) {
+      }
+      
+      else if (typeof item === 'string' && item.includes('Complementary Studies')) {
         const b = document.createElement('div');
         b.className = 'course-box';
         b.dataset.code = 'COMP_STUDIES';
         b.innerHTML = `<div class="course-title">${item}</div><div class="course-desc">Click to view courses.</div>`;
         b.addEventListener('click', () => openCompStudiesPopup());
         col.appendChild(b);
-      } else if (typeof item === 'string' && item.includes('Area of Concentration')) {
+      }
+      
+      else if (typeof item === 'string' && item.includes('Area of Concentration')) {
         const b = document.createElement('div');
         b.className = 'course-box';
         b.dataset.code = 'AOC_REQUIREMENT';
         b.innerHTML = `<div class="course-title">${item}</div><div class="course-desc">Click to view requirements.</div>`;
         b.addEventListener('click', () => openAocPopup(selectedAoc, renderAocCourses));
         col.appendChild(b);
-      } else {
+      }
+      
+      else {
         const b = makeBox(item);
         if (b) col.appendChild(b);
       }
+
     });
 
     col.querySelector('.expand-btn').addEventListener('click', () => openColumnPopup(col, courses));
     courseGrid.appendChild(col);
+
   });
 }
 

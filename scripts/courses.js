@@ -102,4 +102,10 @@ export const aoc_courses = {
 export const tools_electives = [
       "ATSC_V 303","CHEM_V 211","CHEM_V 311","EOSC_V 211","GEOS_V 270",
       "GEOS_V 309","GEOS_V 370","GEOS_V 373","NRES_V 241","NRES_V 340","NRES_V 341"
-    ]
+    ];
+
+export const yearMapping = [
+    { key: '1',   label: 'First Year' },
+    { key: '2',   label: 'Second Year' },
+    { key: '3/4', label: 'Third & Fourth Years' }
+  ];
