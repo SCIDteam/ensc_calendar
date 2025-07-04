@@ -1,4 +1,4 @@
-import { aoc_courses, tools_electives } from './data/courses.js';
+import { aoc_courses, tools_electives } from './courses.js';
 
 export function openToolsPopup(makeBox) {
   const overlay = document.createElement('div');
