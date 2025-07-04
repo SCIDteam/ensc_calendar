@@ -68,3 +68,88 @@ export function openColumnPopup(col, courses) {
   overlay.appendChild(pop);
   document.body.appendChild(overlay);
 }
+
+let compStudyData = null;
+let compStudyAreas = [];
+
+export function openCompStudiesPopup() {
+  const loadData = compStudyData
+    ? Promise.resolve(compStudyData)
+    : fetch('json/comp_study_courses.json')
+        .then(r => r.json())
+        .then(data => {
+          compStudyData = data;
+          compStudyAreas = [...new Set(data.map(c => c['Complementary Study Area']))];
+          return compStudyData;
+        });
+
+  loadData
+    .then(() => showPopup(compStudyAreas[0]))
+    .catch(e => console.error('Error loading complementary studies:', e));
+
+  function showPopup(initialArea) {
+    const overlay = document.createElement('div');
+    overlay.className = 'popup-overlay';
+    overlay.addEventListener('click', e => e.target === overlay && overlay.remove());
+
+    const popup = document.createElement('div');
+    popup.className = 'popup';
+
+    const close = document.createElement('button');
+    close.className = 'close-btn';
+    close.innerHTML = '✕';
+    close.addEventListener('click', () => overlay.remove());
+    popup.appendChild(close);
+
+    const title = document.createElement('h3');
+    title.textContent = 'Complementary Studies Courses';
+    popup.appendChild(title);
+
+    const select = document.createElement('select');
+    compStudyAreas.forEach(area => {
+      const opt = document.createElement('option');
+      opt.value = area;
+      opt.textContent = area;
+      select.appendChild(opt);
+    });
+    select.value = initialArea;
+    popup.appendChild(select);
+
+    const columns = document.createElement('div');
+    columns.className = 'columns-container';
+    popup.appendChild(columns);
+
+    const renderArea = area => {
+      columns.innerHTML = '';
+      const filtered = compStudyData.filter(c => c['Complementary Study Area'] === area);
+      const subjects = [...new Set(filtered.map(c => c.Subject))];
+      subjects.forEach(sub => {
+        const col = document.createElement('div');
+        col.className = 'course-column';
+        const head = document.createElement('h3');
+        head.textContent = sub;
+        col.appendChild(head);
+        filtered.filter(c => c.Subject === sub).forEach(course => {
+          const box = document.createElement('div');
+          box.className = 'course-box';
+          const t = document.createElement('div');
+          t.className = 'course-title';
+          t.textContent = `${course['Course Code']} - ${course['Course Title']}`;
+          const d = document.createElement('div');
+          d.className = 'course-desc';
+          d.textContent = course.Description || '';
+          box.appendChild(t);
+          box.appendChild(d);
+          col.appendChild(box);
+        });
+        columns.appendChild(col);
+      });
+    };
+
+    select.addEventListener('change', () => renderArea(select.value));
+    renderArea(initialArea);
+
+    overlay.appendChild(popup);
+    document.body.appendChild(overlay);
+  }
+}

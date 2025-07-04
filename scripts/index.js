@@ -1,5 +1,5 @@
 import { calendar_courses, aoc_courses } from './courses.js';
-import { openToolsPopup, openAocPopup, openColumnPopup } from './popups.js';
+import { openToolsPopup, openAocPopup, openCompStudiesPopup, openColumnPopup } from './popups.js';
 
 const $ = id => document.getElementById(id);
 
@@ -84,6 +84,13 @@ function renderCalendar() {
         b.dataset.code = 'TOOLS_ELECTIVE';
         b.innerHTML = '<div class="course-title">Tools Elective</div><div class="course-desc">Click to see more information.</div>';
         b.addEventListener('click', () => openToolsPopup(makeBox));
+        col.appendChild(b);
+      } else if (typeof item === 'string' && item.includes('Complementary Studies')) {
+        const b = document.createElement('div');
+        b.className = 'course-box';
+        b.dataset.code = 'COMP_STUDIES';
+        b.innerHTML = `<div class="course-title">${item}</div><div class="course-desc">Click to view courses.</div>`;
+        b.addEventListener('click', () => openCompStudiesPopup());
         col.appendChild(b);
       } else if (typeof item === 'string' && item.includes('Area of Concentration')) {
         const b = document.createElement('div');
