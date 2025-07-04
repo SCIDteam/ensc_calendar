@@ -1,9 +1,8 @@
 import { aoc_courses, tools_electives } from './courses.js';
+import { createOverlay, createCloseButton } from './ui-utils.js';
 
 export function openToolsPopup(makeBox) {
-  const overlay = document.createElement('div');
-  overlay.className = 'popup-overlay';
-  overlay.addEventListener('click', e => e.target === overlay && overlay.remove());
+  const overlay = createOverlay();
 
   const popup = document.createElement('div');
   popup.className = 'popup';
@@ -19,17 +18,12 @@ export function openAocPopup(selectedAoc, renderAocCourses) {
     alert('Please select an area of concentration.');
     return;
   }
-  const overlay = document.createElement('div');
-  overlay.className = 'popup-overlay';
-  overlay.addEventListener('click', e => e.target === overlay && overlay.remove());
+  const overlay = createOverlay();
 
   const popup = document.createElement('div');
   popup.className = 'popup';
 
-  const close = document.createElement('button');
-  close.className = 'close-btn';
-  close.innerHTML = '✕';
-  close.addEventListener('click', () => overlay.remove());
+  const close = createCloseButton(() => overlay.remove());
   popup.appendChild(close);
 
   const title = document.createElement('h3');
@@ -43,8 +37,7 @@ export function openAocPopup(selectedAoc, renderAocCourses) {
 }
 
 export function openColumnPopup(col, courses) {
-  const overlay = document.createElement('div');
-  overlay.className = 'popup-overlay';
+  const overlay = createOverlay();
 
   const pop = document.createElement('div');
   pop.className = 'popup course-column';
@@ -59,10 +52,7 @@ export function openColumnPopup(col, courses) {
     box.querySelector('.course-desc').textContent = c.desc || '';
   });
 
-  const close = document.createElement('button');
-  close.className = 'close-btn';
-  close.innerHTML = '✕';
-  close.addEventListener('click', () => document.body.removeChild(overlay));
+  const close = createCloseButton(() => overlay.remove());
   pop.appendChild(close);
 
   overlay.appendChild(pop);
@@ -88,17 +78,12 @@ export function openCompStudiesPopup() {
     .catch(e => console.error('Error loading complementary studies:', e));
 
   function showPopup(initialArea) {
-    const overlay = document.createElement('div');
-    overlay.className = 'popup-overlay';
-    overlay.addEventListener('click', e => e.target === overlay && overlay.remove());
+    const overlay = createOverlay();
 
     const popup = document.createElement('div');
     popup.className = 'popup';
 
-    const close = document.createElement('button');
-    close.className = 'close-btn';
-    close.innerHTML = '✕';
-    close.addEventListener('click', () => overlay.remove());
+    const close = createCloseButton(() => overlay.remove());
     popup.appendChild(close);
 
     const title = document.createElement('h3');
