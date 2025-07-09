@@ -1,0 +1,57 @@
+[
+  {
+    "Course_Code":"ATSC_V 303",
+    "Description":"An introduction to instrumentation used in monitoring the state of the atmosphere; a brief survey of methods of analysis of meteorological data. [2-2-0] Prerequisite: One of EOSC 211, CPSC 103, CPSC 110 and one of ATSC 201, GEOB 200, GEOS 200.",
+    "Course Title":"Methods in Atmospheric Science"
+  },
+  {
+    "Course_Code":"CHEM_V 211",
+    "Description":"Quantitative chemical analysis; chemical and physical principles of spectrophotometry, potentiometry, and chromatography. [3-3-0] Prerequisite: Either (a) CHEM 123 or (b) all of CHEM 130, CHEM 135 or (c) SCIE 001. This course is not eligible for Credit\/D\/Fail grading.",
+    "Course Title":"Introduction to Chemical Analysis"
+  },
+  {
+    "Course_Code":"CHEM_V 311",
+    "Description":"Theory, design, and application of instrumental methods of chemical analysis including spectroscopy, mass spectrometry, electroanalysis, and chemical separations. [3-0-1] Prerequisite: One of CHEM_V 210, CHEM_V 211.",
+    "Course Title":"Instrumental Analytical Chemistry"
+  },
+  {
+    "Course_Code":"EOSC_V 211",
+    "Description":"Mathematical computer-based problem solving in the physical, chemical, and biological sciences. Problems drawn from studies of the earth, the oceans and the atmosphere. Credit will be granted for only one of APSC 160 or EOSC 211. [2-0-2] Prerequisite: One of MATH 101, MATH 103, MATH 105, MATH 121, SCIE 001.",
+    "Course Title":"Computer Methods in Earth, Ocean and Atmospheric Sciences"
+  },
+  {
+    "Course_Code":"GEOS_V 270",
+    "Description":"Computer-based graphical methods of data input and analysis. Emphasis on data visualization techniques such as cartographic modelling and exploratory data analysis. [2-2-0] Credit will be granted for only one of GEOB_V 270 or GEOS_V 270. Equivalency: GEOB_V 270.",
+    "Course Title":"Geographic Information Science"
+  },
+  {
+    "Course_Code":"GEOS_V 309",
+    "Description":"Field sampling, instrumentation, surveying, mapping techniques, and data analysis; mandatory multi-day field camp in May or June. Special fees and liability insurance are required. Recommended prerequisites: one of BIOL_V 230, GEOB_V 207, GEOS_V 207 and one of GEOB_V 200, GEOS_V 200, GEOB_V 204, GEOS_V 204. [0-3-0] Credit will be granted for only one of GEOB_V 309 or GEOS_V 309. Equivalency: GEOB_V 309. This course is not eligible for Credit\/D\/Fail grading.",
+    "Course Title":"Geographical Sciences Field Course"
+  },
+  {
+    "Course_Code":"GEOS_V 370",
+    "Description":"Theoretical and practical aspects of Geographic Information Systems, including cartographic modelling, digital terrain models, management issues, and spatial interpolation. Recommended prerequisites: Third-year standing in ENSC, GEOG, ENST, URST, or GEOS (or GEOB) specializations, with some introductory knowledge of GIS. [2-2-0] Credit will be granted for only one of GEOB_V 370 or GEOS_V 370. Equivalency: GEOB_V 370.",
+    "Course Title":"Advanced Geographic Information Science"
+  },
+  {
+    "Course_Code":"GEOS_V 373",
+    "Description":"Aerial photography; measurement from aerial photographs; photo-interpretation in geographic analysis; remote sensing of the earth's surface and atmosphere. This course is recommended for students with credit in one of GEOB_V 270, GEOS_V 270, or third-year standing in ENSC or GEOS (or GEOB) specializations. [3-2*-0] Credit will only be granted for one of GEOB_V 373 or GEOS_V 373. Equivalency: GEOB_V 373.",
+    "Course Title":"Remote Sensing: Monitoring Earth\u2019s Surface from Afar"
+  },
+  {
+    "Course_Code":"NRES_V 241",
+    "Description":"Introduction to spatial thinking and principles of Geographic Information Systems (GIS) and remote sensing for natural resource management. Priority enrolment to students in the Faculty of Forestry. Prerequisite: Second-year standing.",
+    "Course Title":"Introduction to Geomatics for Natural Resource Management"
+  },
+  {
+    "Course_Code":"NRES_V 340",
+    "Description":"Introduction to principles, practice and context of Geographic Information Systems (GIS) applied to forest management and natural resource conservation issues. Priority enrolment to students in the Faculty of Forestry. Credit will be granted for only one of NRES_V 340 or CONS_V 340. [2-2-0] Prerequisite: Third- or fourth-year standing. Equivalency: CONS_V 340",
+    "Course Title":"Introduction to Geographic Information Systems for Forestry and Conservation"
+  },
+  {
+    "Course_Code":"NRES_V 341",
+    "Description":"Applications of remote sensing, image analysis, advanced spatial analysis and geoprocessing for natural resource management. Priority enrolment to students in the Faculty of Forestry. Students may receive credit for only one of NRES_V 341, NRES_V 340, CONS_V 340. Prerequisite: NRES_V 241. Third-year standing. Equivalency: NRES_V 340, CONS_V 340",
+    "Course Title":"Intermediate Geomatics for Natural Resource Management"
+  }
+]

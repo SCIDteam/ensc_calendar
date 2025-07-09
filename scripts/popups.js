@@ -6,7 +6,18 @@ export function openToolsPopup(makeBox) {
 
   const popup = document.createElement('div');
   popup.className = 'popup';
-  popup.innerHTML = `<p>Students should choose one of the following tools electives and it must be completed before 4th year.</p>`;
+  
+  const title = document.createElement('h3');
+  title.textContent = 'Tools Electives';
+  popup.appendChild(title);
+
+  const close = createCloseButton(() => overlay.remove());
+  popup.appendChild(close);
+
+  const desc = document.createElement('p');
+  desc.textContent = 'Students should choose one of the following tools electives and it must be completed before 4th year.';
+  popup.appendChild(desc);
+
   tools_electives.forEach(c => popup.appendChild(makeBox(c, 'popup-box')));
 
   overlay.appendChild(popup);
