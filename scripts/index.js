@@ -1,4 +1,4 @@
-import { calendar_courses, aoc_courses, yearMapping } from './courses.js';
+import { calendar_courses, aoc_courses, yearMapping, tools_electives } from './courses.js';
 import { openToolsPopup, openAocPopup, openCompStudiesPopup, openColumnPopup } from './popups.js';
 
 const $ = id => document.getElementById(id);
@@ -15,6 +15,10 @@ const wantedCodes = new Map(
     .filter(c => /^[A-Z]{4}(?:_V)? \d{3}$/.test(c.trim()))
     .map(c => [normalise(c), c.trim()])
 );
+tools_electives.forEach(c => {
+  const norm = normalise(c);
+  if (!wantedCodes.has(norm)) wantedCodes.set(norm, c);
+});
 const courses = {};
 
 function updateCourse({ course_code, course_title = '', description = '', prerequisites = [], corequisites = [] }) {
@@ -30,11 +34,19 @@ function updateCourse({ course_code, course_title = '', description = '', prereq
 
 Promise.all([
   fetch('json/envr_major_core.json').then(r => r.json()),
-  fetch('json/new_courses_info.json').then(r => r.json())
+  fetch('json/new_courses_info.json').then(r => r.json()),
+  fetch('json/tools_electives.json').then(r => r.json())
 ])
-  .then(([core, info]) => {
+  .then(([core, info, tools]) => {
     core.forEach(updateCourse);
     info.forEach(updateCourse);
+    tools.forEach(t =>
+      updateCourse({
+        course_code: t.Course_Code,
+        course_title: t['Course Title'],
+        description: t.Description
+      })
+    );
     renderCalendar();
   })
   .catch(e => console.error('Error loading courses:', e));
@@ -83,7 +95,7 @@ function renderCalendar() {
         b.className = 'course-box';
         b.dataset.code = 'TOOLS_ELECTIVE';
         b.innerHTML = '<div class="course-title">Tools Elective</div><div class="course-desc">Click to see more information.</div>';
-        b.addEventListener('click', () => openToolsPopup(makeBox));
+        b.addEventListener('click', () => openToolsPopup(makeBox, courses));
         col.appendChild(b);
       }
       

@@ -1,7 +1,7 @@
 import { aoc_courses, tools_electives } from './courses.js';
 import { createOverlay, createCloseButton } from './ui-utils.js';
 
-export function openToolsPopup(makeBox) {
+export function openToolsPopup(makeBox, courses) {
   const overlay = createOverlay();
 
   const popup = document.createElement('div');
@@ -18,7 +18,13 @@ export function openToolsPopup(makeBox) {
   desc.textContent = 'Students should choose one of the following tools electives and it must be completed before 4th year.';
   popup.appendChild(desc);
 
-  tools_electives.forEach(c => popup.appendChild(makeBox(c, 'popup-box')));
+  tools_electives.forEach(c => {
+    const box = makeBox(c, 'popup-box');
+    const data = courses[c] || {};
+    const descEl = box.querySelector('.course-desc');
+    if (descEl) descEl.textContent = data.desc || '';
+    popup.appendChild(box);
+  });
 
   overlay.appendChild(popup);
   document.body.appendChild(overlay);
