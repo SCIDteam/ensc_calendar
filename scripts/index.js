@@ -159,7 +159,12 @@ function renderAocCourses(key, container) {
     console.error('No container provided for AOC courses');
     return;
   }
-  container.innerHTML = '';
+
+  [...container.children].forEach(child => {
+    if (!child.classList.contains('close-btn')) {
+      container.removeChild(child);
+    }
+  });
   const area = aoc_courses[key];
 
   const columnsContainer = document.createElement('div');
