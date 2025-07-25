@@ -172,19 +172,16 @@ function renderAocCourses(key, container) {
     return;
   }
 
-  [...container.children].forEach(child => {
-    if (!child.classList.contains('close-btn')) {
-      container.removeChild(child);
-    }
-  });
+  container.innerHTML = '';
+  
   const area = aoc_courses[key];
-
-  const columnsContainer = document.createElement('div');
-  columnsContainer.className = 'columns-container';
 
   const title = document.createElement('h3');
   title.textContent = area.title;
-  container.appendChild(title);
+  // container.appendChild(title);
+
+  const columnsContainer = document.createElement('div');
+  columnsContainer.className = 'columns-container';
 
   const createColumn = (titleText, content) => {
     const col = document.createElement('div');
@@ -234,5 +231,3 @@ function renderAocCourses(key, container) {
     container.appendChild(columnsContainer);
   }
 }
-
-renderAocButtons();

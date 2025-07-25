@@ -31,10 +31,6 @@ export function openToolsPopup(makeBox, courses) {
 }
 
 export function openAocPopup(selectedAoc, renderAocCourses) {
-  if (!selectedAoc) {
-    alert('Please select an area of concentration.');
-    return;
-  }
   const overlay = createOverlay();
 
   const popup = document.createElement('div');
@@ -43,11 +39,66 @@ export function openAocPopup(selectedAoc, renderAocCourses) {
   const close = createCloseButton(() => overlay.remove());
   popup.appendChild(close);
 
-  const title = document.createElement('h3');
-  title.textContent = aoc_courses[selectedAoc].title;
-  popup.appendChild(title);
+  let heading = document.createElement('h3');
+  heading.textContent = 'Select an Area of Concentration to View Courses';
+  popup.append(heading)
 
-  renderAocCourses(selectedAoc, popup);
+  // Create buttons container inside the popup
+  const buttonsContainer = document.createElement('div');
+  buttonsContainer.className = 'aoc-buttons';
+  buttonsContainer.id = 'popupAocButtons';
+
+  // Render buttons inside the popup
+  Object.entries(aoc_courses).forEach(([key, area]) => {
+    const btn = document.createElement('button');
+    btn.className = 'aoc-button';
+    btn.innerText = area.title;
+    
+    btn.onclick = () => {
+      const isActive = btn.classList.contains('active');
+      // Remove active class from all buttons in the popup
+      buttonsContainer.querySelectorAll('.aoc-button').forEach(b => b.classList.remove('active'));
+
+      if (isActive) {
+        selectedAoc = null;
+        // Clear the courses display
+        const existingCoursesContainer = popup.querySelector('.courses-container');
+        if (existingCoursesContainer) {
+          existingCoursesContainer.remove();
+        }
+        heading.textContent = 'Select an Area of Concentration to View Courses';
+      } else {
+        btn.classList.add('active');
+        selectedAoc = key;
+        heading.textContent = null;
+        
+        // Remove existing courses container if it exists
+        const existingCoursesContainer = popup.querySelector('.courses-container');
+        if (existingCoursesContainer) {
+          existingCoursesContainer.remove();
+        }
+        
+        // Create new courses container
+        const coursesContainer = document.createElement('div');
+        coursesContainer.className = 'courses-container';
+        
+        // Render courses for the selected AOC
+        renderAocCourses(key, coursesContainer);
+        popup.appendChild(coursesContainer);
+      }
+    };
+    buttonsContainer.appendChild(btn);
+  });
+
+  popup.appendChild(buttonsContainer);
+
+  // If there's a selectedAoc, render its courses initially
+  if (selectedAoc) {
+    const coursesContainer = document.createElement('div');
+    coursesContainer.className = 'courses-container';
+    renderAocCourses(selectedAoc, coursesContainer);
+    popup.appendChild(coursesContainer);
+  }
 
   overlay.appendChild(popup);
   document.body.appendChild(overlay);

@@ -29,8 +29,8 @@ h1 {
   justify-content: center;
   flex-wrap: wrap;
   gap: 12px;
-  margin-bottom: 30px;
-  padding-left: 10px;
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
 
 .aoc-button {
@@ -63,7 +63,7 @@ padding-right: 10px;
 .course-column {
 flex: 1;
 min-width: 280px;
-max-height: calc(100vh - 170px);
+max-height: calc(100vh - 110px);
 overflow-y: auto;
 background: white;
 border-radius: 12px;
@@ -118,37 +118,6 @@ ul {
 li {
   margin-bottom: 6px;
 }
-
-.search-container {
-margin: 5px 0;
-margin-bottom: 10px;
-text-align: center;
-}
-
-#courseSearch {
-padding: 10px;
-width: 80%;
-font-size: 16px;
-border-radius: 8px;
-border: 2px solid #ccc;
-}
-/* 
-.search-alert.red {
-background-color: #f44336;
-}
-
-.search-alert.green {
-background-color: #4CAF50;
-}
-
-.search-alert {
-margin-top: 10px;
-color: white;
-padding: 10px;
-font-weight: bold;
-border-radius: 6px;
-display: none;
-} */
 
 .expand-btn {
   position: absolute;
