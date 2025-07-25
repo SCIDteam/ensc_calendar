@@ -52,3 +52,33 @@
 h3, p {
   margin: 0.5em;
 }
+
+.select-legend-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.legend-color {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-color: #F5F5DC;
+  border: 1px solid #ccc;
+  margin-right: 0.4em;
+}
+
+.legend-color-2 {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-color: #f1f5f9;
+  border: 1px solid #ccc;
+  margin-right: 0.4em;
+}
+
+.legend {
+  display: none;
+  align-items: center;
+  color: #333;
+  margin-right: 0.5em;
+}

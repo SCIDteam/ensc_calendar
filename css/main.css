@@ -58,7 +58,7 @@ h1 {
 .course-column-1 {
   flex: 1;
   min-width: 280px;
-  max-height: calc(100vh - 105px);
+  max-height: calc(100vh - 100px);
   overflow-y: auto;
   background: #fff;
   border: 1px solid #808080;
@@ -74,7 +74,7 @@ h1 {
 .course-column-1 h3 {
   position: sticky;
   top: 0;
-  margin: 0.2em 0 0;
+  margin: 0.2em 0 0.2em;
   padding: 8px 0;
   background: #fff;
   font-size: 18px;
