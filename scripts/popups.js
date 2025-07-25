@@ -1,4 +1,4 @@
-import { aoc_courses, tools_electives } from './courses.js';
+import { aoc_courses, tools_electives, hgseOnline } from './courses.js';
 import { createOverlay, createCloseButton } from './ui-utils.js';
 
 export function openToolsPopup(makeBox, courses) {
@@ -19,7 +19,7 @@ export function openToolsPopup(makeBox, courses) {
   popup.appendChild(desc);
 
   tools_electives.forEach(c => {
-    const box = makeBox(c, 'popup-box');
+    const box = makeBox(c);
     const data = courses[c] || {};
     const descEl = box.querySelector('.course-desc');
     if (descEl) descEl.textContent = data.desc || '';
@@ -46,7 +46,6 @@ export function openAocPopup(selectedAoc, renderAocCourses) {
   // Create buttons container inside the popup
   const buttonsContainer = document.createElement('div');
   buttonsContainer.className = 'aoc-buttons';
-  buttonsContainer.id = 'popupAocButtons';
 
   // Render buttons inside the popup
   Object.entries(aoc_courses).forEach(([key, area]) => {
@@ -168,6 +167,13 @@ export function openCompStudiesPopup() {
     title.textContent = 'Complementary Studies Courses';
     popup.appendChild(title);
 
+    const subtitle = document.createElement('p')
+    subtitle.textContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    popup.appendChild(subtitle)
+
+    const selectWrapper = document.createElement('div');
+    selectWrapper.className = 'select-legend-wrapper';
+
     const select = document.createElement('select');
     compStudyAreas.forEach(area => {
       const opt = document.createElement('option');
@@ -176,7 +182,29 @@ export function openCompStudiesPopup() {
       select.appendChild(opt);
     });
     select.value = initialArea;
-    popup.appendChild(select);
+
+    const legend = document.createElement('div');
+    legend.className = 'legend';
+    legend.innerHTML = `
+      <span class="legend-color"></span>
+      Online Courses
+      <span class="legend-color-2" style="margin-left: 1em;"></span>
+      Field Courses
+    `;
+    legend.style.display = (initialArea === 'Indigenous Knowledge & Perspectives') ? 'flex' : 'none';
+
+    selectWrapper.appendChild(select);
+    selectWrapper.appendChild(legend);
+    popup.appendChild(selectWrapper);
+
+    select.addEventListener('change', () => {
+      renderArea(select.value);
+      if (select.value === 'Indigenous Knowledge & Perspectives') {
+        legend.style.display = 'flex';
+      } else {
+        legend.style.display = 'none';
+      }
+    });
 
     const columns = document.createElement('div');
     columns.className = 'columns-container';
@@ -188,13 +216,23 @@ export function openCompStudiesPopup() {
       const subjects = [...new Set(filtered.map(c => c.Subject))];
       subjects.forEach(sub => {
         const col = document.createElement('div');
-        col.className = 'course-column';
+        col.className = 'course-column-1';
         const head = document.createElement('h3');
         head.textContent = sub;
         col.appendChild(head);
         filtered.filter(c => c.Subject === sub).forEach(course => {
           const box = document.createElement('div');
           box.className = 'course-box';
+          
+          // Check if this is Haida Gwaii Semesters and if course is in hgseOnline array
+          if (sub === "Haida Gwaii Semesters") {
+            // Convert course code from "HGSE_V 312" format to "HGSE 312" format for comparison
+            const courseCodeForComparison = course['Course Code'].replace('_V', '');
+            if (hgseOnline.includes(courseCodeForComparison)) {
+              box.style.backgroundColor = '#F5F5DC'; // Light beige color
+            }
+          }
+          
           const t = document.createElement('div');
           t.className = 'course-title';
           t.textContent = `${course['Course Code']} - ${course['Course Title']}`;

@@ -1,0 +1,84 @@
+/* Overlay and popup layout */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.popup {
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+.popup select {
+  padding: 6px 10px;
+  margin: 5px 5px 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.popup .expand-btn { display: none !important; }
+
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.columns-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+h3, p {
+  margin: 0.5em;
+}
+
+.select-legend-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.legend-color {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-color: #F5F5DC;
+  border: 1px solid #ccc;
+  margin-right: 0.4em;
+}
+
+.legend-color-2 {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-color: #f1f5f9;
+  border: 1px solid #ccc;
+  margin-right: 0.4em;
+}
+
+.legend {
+  display: none;
+  align-items: center;
+  color: #333;
+  margin-right: 0.5em;
+}

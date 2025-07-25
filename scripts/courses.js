@@ -109,3 +109,6 @@ export const yearMapping = [
     { key: '2',   label: 'Second Year' },
     { key: '3/4', label: 'Third & Fourth Years' }
   ];
+
+export const hgseOnline = ['HGSE 312', 'HGSE 381',  'HGSE 373', 'HGSE 313', 'HGSE 383', 'HGSE 394',
+                           'HGSE 311', 'HGSE 354', 'HGSE 371'];

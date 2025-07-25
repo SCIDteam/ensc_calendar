@@ -3,9 +3,8 @@ import { openToolsPopup, openAocPopup, openCompStudiesPopup, openColumnPopup } f
 
 const $ = id => document.getElementById(id);
 
-// Elements for calendar view and AOC listings
+// Element for calendar view
 const courseGrid = $("courseGrid");
-const aocButtonsDiv = $("aocButtons");
 
 const normalise = c => c.replace(/_V/, '').trim();
 const wantedCodes = new Map(
@@ -59,10 +58,10 @@ function renderCalendar() {
     return i >= 0 ? txt.slice(i) : '';
   };
 
-  const makeBox = (code, extra = '') => {
+  const makeBox = code => {
     const data = courses[code] || { code };
     const box = document.createElement('div');
-    box.className = 'course-box' + (extra ? ' ' + extra : '');
+    box.className = 'course-box';
     box.dataset.code = code;
     box.innerHTML = `<div class="course-title">${data.code}${data.title ? ' – ' + data.title : ''}</div>` +
                     `<div class="course-desc">${prereqSnippet(data.desc || '')}</div>`;

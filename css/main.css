@@ -1,0 +1,164 @@
+/* Base styles */
+* { box-sizing: border-box; }
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f9fafb;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  text-align: center;
+}
+
+
+/* AOC buttons */
+.aoc-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 5px 0 10px;
+}
+.aoc-button {
+  padding: 12px 20px;
+  border-radius: 30px;
+  border: none;
+  background: #e0f2fe;
+  color: #0369a1;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+.aoc-button:hover,
+.aoc-button.active {
+  background: #0369a1;
+  color: #fff;
+}
+
+/* Calendar columns and boxes */
+.course-grid {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 10px;
+}
+.course-column,
+.course-column-1 {
+  flex: 1;
+  min-width: 280px;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  background: #fff;
+  border: 1px solid #808080;
+  border-radius: 12px;
+  padding: 0 20px 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  position: relative;
+}
+.course-column {
+  max-width: 90%;
+}
+.course-column h3,
+.course-column-1 h3 {
+  position: sticky;
+  top: 0;
+  margin: 0.2em 0 0.2em;
+  padding: 8px 0;
+  background: #fff;
+  font-size: 18px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+  z-index: 1;
+}
+.column-header {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 1;
+  padding: 2px 0 8px;
+}
+.course-box {
+  background: #f1f5f9;
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+.course-box:hover { border-color: #3b82f6; }
+.course-title {
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+.course-desc {
+  font-size: 14px;
+  color: #555;
+  display: block;
+}
+
+ul { padding-left: 20px; margin-top: 10px; }
+li { margin-bottom: 6px; }
+
+.expand-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.choice-group {
+  border: 2px dashed green;
+  border-radius: 8px;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+}
+.choice-label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* width of the scrollbar */
+.course-column::-webkit-scrollbar,
+.course-column-1::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* the track (background) of the scrollbar */
+.course-column::-webkit-scrollbar-track,
+.course-column-1::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 12px;
+  margin: 6px; /* optional: adds padding around the thumb */
+}
+
+/* the draggable thumb */
+.course-column::-webkit-scrollbar-thumb,
+.course-column-1::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+/* thumb hover state */
+.course-column::-webkit-scrollbar-thumb:hover,
+.course-column-1::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
