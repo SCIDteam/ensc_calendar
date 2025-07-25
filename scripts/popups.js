@@ -108,8 +108,19 @@ export function openColumnPopup(col, courses) {
   const overlay = createOverlay();
 
   const pop = document.createElement('div');
-  pop.className = 'popup course-column';
+  pop.className = 'course-column';
   pop.innerHTML = col.innerHTML;
+
+  // Remove the expand-btn from the column-header and replace with close-btn
+  const columnHeader = pop.querySelector('.column-header');
+  const expandBtn = columnHeader.querySelector('.expand-btn');
+  if (expandBtn) {
+    expandBtn.remove();
+  }
+
+  // Create and add close button to the column header
+  const close = createCloseButton(() => overlay.remove());
+  columnHeader.appendChild(close);
 
   pop.querySelectorAll('.course-box').forEach(box => {
     const code = box.dataset.code;
@@ -120,10 +131,9 @@ export function openColumnPopup(col, courses) {
     box.querySelector('.course-desc').textContent = c.desc || '';
   });
 
-  const close = createCloseButton(() => overlay.remove());
-  pop.appendChild(close);
-
+  // Add the popup to the overlay
   overlay.appendChild(pop);
+  
   document.body.appendChild(overlay);
 }
 
