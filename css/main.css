@@ -21,6 +21,7 @@ h1 {
   text-align: center;
 }
 
+
 /* AOC buttons */
 .aoc-buttons {
   display: flex;
@@ -53,22 +54,27 @@ h1 {
   gap: 20px;
   padding: 10px;
 }
-.course-column {
+.course-column,
+.course-column-1 {
   flex: 1;
   min-width: 280px;
-  max-width: 90%;
   max-height: calc(100vh - 105px);
   overflow-y: auto;
   background: #fff;
+  border: 1px solid #808080;
   border-radius: 12px;
   padding: 0 20px 10px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.08);
   position: relative;
 }
-.course-column h3 {
+.course-column {
+  max-width: 90%;
+}
+.course-column h3,
+.course-column-1 h3 {
   position: sticky;
   top: 0;
-  margin: 0;
+  margin: 0.2em 0 0;
   padding: 8px 0;
   background: #fff;
   font-size: 18px;
@@ -128,3 +134,31 @@ li { margin-bottom: 6px; }
   margin-bottom: 0.5rem;
 }
 
+/* width of the scrollbar */
+.course-column::-webkit-scrollbar,
+.course-column-1::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* the track (background) of the scrollbar */
+.course-column::-webkit-scrollbar-track,
+.course-column-1::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 12px;
+  margin: 6px; /* optional: adds padding around the thumb */
+}
+
+/* the draggable thumb */
+.course-column::-webkit-scrollbar-thumb,
+.course-column-1::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+/* thumb hover state */
+.course-column::-webkit-scrollbar-thumb:hover,
+.course-column-1::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

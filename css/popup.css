@@ -23,7 +23,7 @@
 }
 .popup select {
   padding: 6px 10px;
-  margin: 5px;
+  margin: 5px 5px 10px;
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -47,4 +47,8 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: flex-start;
+}
+
+h3, p {
+  margin: 0.5em;
 }

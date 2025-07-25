@@ -167,6 +167,10 @@ export function openCompStudiesPopup() {
     title.textContent = 'Complementary Studies Courses';
     popup.appendChild(title);
 
+    const subtitle = document.createElement('p')
+    subtitle.textContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    popup.appendChild(subtitle)
+
     const select = document.createElement('select');
     compStudyAreas.forEach(area => {
       const opt = document.createElement('option');
@@ -187,7 +191,7 @@ export function openCompStudiesPopup() {
       const subjects = [...new Set(filtered.map(c => c.Subject))];
       subjects.forEach(sub => {
         const col = document.createElement('div');
-        col.className = 'course-column';
+        col.className = 'course-column-1';
         const head = document.createElement('h3');
         head.textContent = sub;
         col.appendChild(head);
