@@ -193,19 +193,6 @@ li {
   margin-bottom: 0.5rem;
 }
 
-.popup2-overlay {                /* full-screen dimmed backdrop */
-  position: fixed; inset: 0; background: rgba(0,0,0,.5);
-  display: flex; justify-content: center; align-items: center;
-  z-index: 999;
-}
-.popup2 {                        /* white rounded panel inside overlay */
-  max-height: 90vh; overflow-y: auto;
-  width: min(800px, 90vw); padding: 1.5rem;
-  background: #fff; border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0,0,0,.25);
-}
-.popup2-box { margin-top: .75rem; } 
-
 .columns-container {
   display: flex;
   gap: 20px;
