@@ -19,7 +19,7 @@ export function openToolsPopup(makeBox, courses) {
   popup.appendChild(desc);
 
   tools_electives.forEach(c => {
-    const box = makeBox(c, 'popup-box');
+    const box = makeBox(c);
     const data = courses[c] || {};
     const descEl = box.querySelector('.course-desc');
     if (descEl) descEl.textContent = data.desc || '';
@@ -46,7 +46,6 @@ export function openAocPopup(selectedAoc, renderAocCourses) {
   // Create buttons container inside the popup
   const buttonsContainer = document.createElement('div');
   buttonsContainer.className = 'aoc-buttons';
-  buttonsContainer.id = 'popupAocButtons';
 
   // Render buttons inside the popup
   Object.entries(aoc_courses).forEach(([key, area]) => {
