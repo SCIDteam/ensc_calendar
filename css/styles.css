@@ -19,7 +19,7 @@ flex-direction: column;
 
 h1 {
   font-size: 28px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding-left: 10px;
   text-align: center;
 }
@@ -63,7 +63,7 @@ padding-right: 10px;
 .course-column {
 flex: 1;
 min-width: 280px;
-max-height: calc(100vh - 110px);
+max-height: calc(100vh - 105px);
 overflow-y: auto;
 background: white;
 border-radius: 12px;

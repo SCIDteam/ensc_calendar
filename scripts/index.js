@@ -146,32 +146,13 @@ fetch('json/aoc_courses.json')
   })
   .catch(error => console.error('Error loading course descriptions:', error));
 
-function renderAocButtons() {
-  Object.entries(aoc_courses).forEach(([key, area]) => {
-    const btn = document.createElement('button');
-    btn.className = 'aoc-button';
-    btn.innerText = area.title;
-    btn.onclick = () => {
-      const isActive = btn.classList.contains('active');
-      document.querySelectorAll('.aoc-button').forEach(b => b.classList.remove('active'));
-
-      if (isActive) {
-        selectedAoc = null;
-      } else {
-        btn.classList.add('active');
-        selectedAoc = key;
-      }
-    };
-    aocButtonsDiv.appendChild(btn);
-  });
-}
-
 function renderAocCourses(key, container) {
   if (!container) {
     console.error('No container provided for AOC courses');
     return;
   }
 
+  // Clear the container completely (no need to preserve close button here)
   container.innerHTML = '';
   
   const area = aoc_courses[key];
@@ -183,7 +164,7 @@ function renderAocCourses(key, container) {
   const columnsContainer = document.createElement('div');
   columnsContainer.className = 'columns-container';
 
-  const createColumn = (titleText, content) => {
+  const createColumn = (titleText, content, sortByCourseNumber = false) => {
     const col = document.createElement('div');
     col.className = 'course-column';
 
@@ -191,7 +172,17 @@ function renderAocCourses(key, container) {
     heading.textContent = titleText;
     col.appendChild(heading);
 
-    content.flat().forEach(course => {
+    let courses = content.flat();
+    
+    if (sortByCourseNumber) {
+      courses = courses.sort((a, b) => {
+        const numA = parseInt(a.slice(-3));
+        const numB = parseInt(b.slice(-3));
+        return numA - numB;
+      });
+    }
+
+    courses.forEach(course => {
       const box = document.createElement('div');
       box.className = 'course-box';
 
@@ -214,7 +205,7 @@ function renderAocCourses(key, container) {
   };
 
   if (area.required?.length > 0)
-    columnsContainer.appendChild(createColumn('Required Courses', area.required));
+    columnsContainer.appendChild(createColumn('Required Courses', area.required, true));
 
   if (Array.isArray(area.oneOf))
     area.oneOf.forEach(group => {
