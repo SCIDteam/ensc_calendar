@@ -1,5 +1,6 @@
 import { aoc_courses, tools_electives, hgseOnline } from './courses.js';
 import { createOverlay, createCloseButton } from './ui-utils.js';
+import { comp_main_para, bp1, bp2 } from './text_content.js';
 
 export function openToolsPopup(makeBox, courses) {
   const overlay = createOverlay();
@@ -123,7 +124,7 @@ export function openColumnPopup(col, courses) {
 
   pop.querySelectorAll('.course-box').forEach(box => {
     const code = box.dataset.code;
-    if (code === 'TOOLS_ELECTIVE' || code === 'AOC_REQUIREMENT') return;
+    if (code === 'TOOLS_ELECTIVE' || code === 'AOC_REQUIREMENT' || code === 'COMP_STUDIES') return;
     const c = courses[code] || {};
     box.querySelector('.course-title').textContent =
       `${c.code || code}${c.title ? ' – ' + c.title : ''}`;
@@ -168,8 +169,19 @@ export function openCompStudiesPopup() {
     popup.appendChild(title);
 
     const subtitle = document.createElement('p')
-    subtitle.textContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    subtitle.textContent = comp_main_para
     popup.appendChild(subtitle)
+
+    const bullet_points = document.createElement('ol')
+    popup.appendChild(bullet_points)
+
+    const bullet_1 = document.createElement('li')
+    bullet_1.innerHTML = bp1
+    bullet_points.appendChild(bullet_1)
+
+    const bullet_2 = document.createElement('li')
+    bullet_2.innerHTML = bp2
+    bullet_points.appendChild(bullet_2)
 
     const selectWrapper = document.createElement('div');
     selectWrapper.className = 'select-legend-wrapper';

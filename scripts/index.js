@@ -1,5 +1,6 @@
 import { calendar_courses, aoc_courses, yearMapping, tools_electives } from './courses.js';
 import { openToolsPopup, openAocPopup, openCompStudiesPopup, openColumnPopup } from './popups.js';
+import { areaDescriptions } from './text_content.js'; 
 
 const $ = id => document.getElementById(id);
 
@@ -159,6 +160,10 @@ function renderAocCourses(key, container) {
   const title = document.createElement('h3');
   title.textContent = area.title;
   // container.appendChild(title);
+
+  const subtitle = document.createElement('div')
+  subtitle.innerHTML = areaDescriptions[area.title].html
+  container.appendChild(subtitle)
 
   const columnsContainer = document.createElement('div');
   columnsContainer.className = 'columns-container';

@@ -1,20 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Environmental Sciences</title>
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/popup.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENSC Program Information</title>
+    <style>
+        * { box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f9fafb;
+            color: #333;
+            line-height: 1.6;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .container {
+            background: #fff;
+            border-radius: 12px;
+            padding: 10px 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            border: 1px solid #808080;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            text-align: center;
+            color: #333;
+        }
+
+        h2 {
+            color: #333;
+            border-left: 4px solid #0369a1;
+            padding-left: 15px;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .intro {
+            background: #f1f5f9;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border: 2px solid transparent;
+        }
+
+        .concentration-item {
+            background: #f1f5f9;
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        .concentration-item:hover {
+            border-color: #3b82f6;
+        }
+
+        .concentration-title {
+            font-weight: bold;
+            color: #333;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .concentration-desc {
+            color: #555;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        .credit-info {
+            background: #f1f5f9;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 25px;
+            border: 2px solid transparent;
+        }
+
+        .highlight {
+            background: #e0f2fe;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+            color: #0369a1;
+        }
+
+        .note {
+            font-style: italic;
+            color: #666;
+            font-size: 14px;
+            margin-top: 10px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-left: 3px solid #0369a1;
+            border-radius: 4px;
+        }
+
+        .calendar-button {
+            display: inline-block;
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 16px;
+            text-align: center;
+            margin: 10px auto;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .calendar-button:hover {
+            background: #0369a1;
+            color: #fff;
+        }
+
+        .button-container {
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        strong {
+            color: #333;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <h1>Bachelor of Science in Environmental Sciences (ENSC)</h1>
+        
+        <div class="intro">
+            <p><strong>Hello and welcome to the recently renewed Bachelor of Science in Environmental Sciences (ENSC) program!</strong></p>
+            
+            <p>This webpage has been designed to help you better understand and navigate some of the exciting and novel features of the program and its requirements.</p>
+            
+            <p>As with all BSc programs here in the UBC Faculty of Science, ENSC has a set of required core courses that all students in the program must take. In addition to these required core courses, the renewed ENSC curriculum offers you the choice of an <span class="highlight">'Area of Concentration'</span>, a <span class="highlight">'Tools' course</span> to focus on a skill, and <span class="highlight">'Complementary Studies'</span> options that provide integrative, cross-disciplinary approaches to the study of environmental issues facing human societies.</p>
+        </div>
 
-  <h1>Environmental Sciences</h1>
+        <h2>Areas of Concentration</h2>
+        
+        <p>The ENSC area of concentration requirement will enable you to gain skills and expertise in one of five key domain areas within contemporary Environmental Sciences. Your options to select from are:</p>
 
-  <div class="course-grid" id="courseGrid">
-    <!-- Columns inserted via JS -->
-  </div>
+        <div class="concentration-item">
+            <div class="concentration-title">Land, Air, Water</div>
+            <div class="concentration-desc">
+                Using field, lab and / or computational approaches, students in the Land Air Water Area of Concentration will develop scientific skills through an exploration of Earth Science disciplines in order to evaluate solutions to global challenges, including climate change, from an Earth Science perspective.
+            </div>
+        </div>
 
-  <script type='module', src="./scripts/index.js"></script>
+        <div class="concentration-item">
+            <div class="concentration-title">Energy Transitions and Sustainability</div>
+            <div class="concentration-desc">
+                This AoC will focus on energy science in the context of multiple intersecting global challenges and consider system changes, not just technological changes, as the means to transition from fossil fuel based energies.
+            </div>
+        </div>
 
+        <div class="concentration-item">
+            <div class="concentration-title">Environmental Impacts on Human Health</div>
+            <div class="concentration-desc">
+                Students studying Environmental Impacts on Human Health will develop the ability to explain and analyse environmental determinants of human health, the mechanisms by which environmental exposure impacts human physical, mental and social well-being. Courses in this AoC will investigate the mitigation of environmental risks to human health at local and global scales.
+            </div>
+        </div>
+
+        <div class="concentration-item">
+            <div class="concentration-title">Environmental Analytics</div>
+            <div class="concentration-desc">
+                The focus of this AoC is on the process of articulating a scientific question, finding appropriate data to address the question, conducting data analysis, communicating uncertainty and evaluating conclusions.
+            </div>
+        </div>
+
+        <div class="concentration-item">
+            <div class="concentration-title">Ecology and Conservation</div>
+            <div class="concentration-desc">
+                Students in the Ecology and Conservation Area of Concentration (AoC) will use socio-ecological principles to explore human / nature wellbeing and the interactions which underpin key societal and environmental challenges, including water quality, wildfires, food production and climate change.
+            </div>
+        </div>
+
+        <div class="credit-info">
+            <p><strong>Credit Requirements:</strong></p>
+            <p>ENSC <span class="highlight">Major students</span> are required to complete <strong>21 credits</strong> in their declared area of concentration*.</p>
+            <p>ENSC <span class="highlight">Honours students</span> are required to complete <strong>24 credits</strong> in their declared area of concentration.</p>
+            
+            <div class="note">
+                * Land Air Water and Environmental Impacts on Human Health require 22 credits. Students completing these AoC's will have one less elective credit required.
+            </div>
+        </div>
+
+                <h2>Tools Electives</h2>
+        <p>The "Tools" electives are a curated list of courses that develop your ability to work independently using analytic or field-based techniques. Not all possible field courses are included in this list (which is limited to courses that ENSC students can all access). If there is a field course that you would like to have approved as a "tools" course, please contact an ENSC advisor BEFORE you take the course.</p>
+        
+        <p>We encourage you to take your tools course early so you are able to use and build on your skills in higher level courses. Co-op strongly encourages having a tools course completed before you apply.</p>
+
+        <h2>Complementary Studies</h2>
+        <p>The program's complementary studies framework is comprised of a broad set of elective options across a number of interdisciplinary thematic areas that intersect with Environmental Science. All students in the program are required to complete twelve credits of complementary studies. There are two ways to satisfy this program requirement:</p>
+        
+        <div class="credit-info">
+            <p><strong>1)</strong> You may choose any of the courses listed on a curated list. Courses on the list have been assigned to themes in order to help guide your decision making. You may take courses across different themes if that is your preference. The themes are:</p>
+            
+           <ul>
+                <li><strong>Indigenous Knowledge and Perspectives</strong></li>
+                <li><strong>Economics and Policy Analysis for Decision Making</strong></li>
+                <li><strong>Society and Governance</strong></li>
+                <li><strong>Environmental Humanities</strong></li>
+                <li><strong>Urban Environments</strong></li>
+            </ul>
+                        
+            <p>Click on the <span class="highlight">"12 Credits of Complementary Studies Courses"</span> box under <span class="highlight">"Third and Fourth Years"</span> on the main page to explore all of the course options on the list.</p>
+            
+            <p><strong>2)</strong> You may propose alternative courses alongside a written justification that outlines how and why your proposed courses advance your educational and career goals. Course proposals will be approved by the instructor of ENVR 205/305 or by an Environmental Sciences program advisor. Please note that if you are pursuing professional accreditation as an Agrologist, Registered Professional Biologist, or Professional Geoscientist, you may use this twelve-credit requirement to help satisfy those requirements.</p>
+        </div>
+
+        <div class="button-container">
+            <a href="calendar.html" class="calendar-button">📅 View Calendar Courses</a>
+        </div>
+    </div>
 </body>
 </html>
