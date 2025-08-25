@@ -28,7 +28,7 @@ export const calendar_courses = {
     "ENVR_V 400",
     "ENVR_V 450",
     "EOSC_V 345",
-    "12 Credits of Complementary Studies Courses",
+    "9 Credits of Complementary Studies Courses",
     "17 Credits of Area of Concentration Courses",
     "17 Credits of Electives"
   ]

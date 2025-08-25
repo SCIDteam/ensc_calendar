@@ -29,6 +29,11 @@
             margin-bottom: 10px;
             text-align: center;
             color: #333;
+            flex: 1;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
         }
 
         h2 {
@@ -128,6 +133,13 @@
             margin: 10px 0;
         }
 
+        .button-container-top {
+            text-align: center;
+            margin: 10px 5px 10px auto;
+            position: relative;
+            z-index: 2;
+        }
+
         p {
             margin-bottom: 15px;
             color: #333;
@@ -137,18 +149,32 @@
             color: #333;
             font-weight: bold;
         }
+
+        .header-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            position: relative;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Bachelor of Science in Environmental Sciences (ENSC)</h1>
+
+        <div class="header-row">
+            <h1>Bachelor of Science in Environmental Sciences (ENSC)</h1>
+            <div class="button-container-top">
+                <a href="calendar.html" class="calendar-button">📅 View Course Offerings</a>
+            </div>
+        </div>    
         
         <div class="intro">
             <p><strong>Hello and welcome to the recently renewed Bachelor of Science in Environmental Sciences (ENSC) program!</strong></p>
             
             <p>This webpage has been designed to help you better understand and navigate some of the exciting and novel features of the program and its requirements.</p>
             
-            <p>As with all BSc programs here in the UBC Faculty of Science, ENSC has a set of required core courses that all students in the program must take. In addition to these required core courses, the renewed ENSC curriculum offers you the choice of an <span class="highlight">'Area of Concentration'</span>, a <span class="highlight">'Tools' course</span> to focus on a skill, and <span class="highlight">'Complementary Studies'</span> options that provide integrative, cross-disciplinary approaches to the study of environmental issues facing human societies.</p>
+            <p>As with all BSc programs here in the UBC Faculty of Science, ENSC has a set of required core courses that all students in the program must take. In addition to these required core courses, the renewed ENSC curriculum offers you the choice of an <span class="highlight">'Area of Concentration'</span>, <span class="highlight">'Tools' courses</span> to focus on a skill, and <span class="highlight">'Complementary Studies'</span> options that provide integrative, cross-disciplinary approaches to the study of environmental issues facing human societies.</p>
         </div>
 
         <h2>Areas of Concentration</h2>
@@ -206,7 +232,7 @@
         <p>We encourage you to take your tools course early so you are able to use and build on your skills in higher level courses. Co-op strongly encourages having a tools course completed before you apply.</p>
 
         <h2>Complementary Studies</h2>
-        <p>The program's complementary studies framework is comprised of a broad set of elective options across a number of interdisciplinary thematic areas that intersect with Environmental Science. All students in the program are required to complete twelve credits of complementary studies. There are two ways to satisfy this program requirement:</p>
+        <p>The program's complementary studies framework is comprised of a broad set of elective options across a number of interdisciplinary thematic areas that intersect with Environmental Science. All students in the program are required to complete nine credits of complementary studies. There are two ways to satisfy this program requirement:</p>
         
         <div class="credit-info">
             <p><strong>1)</strong> You may choose any of the courses listed on a curated list. Courses on the list have been assigned to themes in order to help guide your decision making. You may take courses across different themes if that is your preference. The themes are:</p>
@@ -219,13 +245,13 @@
                 <li><strong>Urban Environments</strong></li>
             </ul>
                         
-            <p>Click on the <span class="highlight">"12 Credits of Complementary Studies Courses"</span> box under <span class="highlight">"Third and Fourth Years"</span> on the main page to explore all of the course options on the list.</p>
+            <p>Click on the <span class="highlight">"9 Credits of Complementary Studies Courses"</span> box under <span class="highlight">"Third and Fourth Years"</span> on the main page to explore all of the course options on the list.</p>
             
-            <p><strong>2)</strong> You may propose alternative courses alongside a written justification that outlines how and why your proposed courses advance your educational and career goals. Course proposals will be approved by the instructor of ENVR 205/305 or by an Environmental Sciences program advisor. Please note that if you are pursuing professional accreditation as an Agrologist, Registered Professional Biologist, or Professional Geoscientist, you may use this twelve-credit requirement to help satisfy those requirements.</p>
+            <p><strong>2)</strong> You may propose alternative courses alongside a written justification that outlines how and why your proposed courses advance your educational and career goals. Course proposals will be approved by the instructor of ENVR 205/305 or by an Environmental Sciences program advisor. Please note that if you are pursuing professional accreditation as an Agrologist, Registered Professional Biologist, or Professional Geoscientist, you may use this nine-credit requirement to help satisfy those requirements.</p>
         </div>
 
         <div class="button-container">
-            <a href="calendar.html" class="calendar-button">📅 View Calendar Courses</a>
+            <a href="calendar.html" class="calendar-button">📅 View Course Offerings</a>
         </div>
     </div>
 </body>
