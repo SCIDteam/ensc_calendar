@@ -1,4 +1,4 @@
-import { aoc_courses, tools_electives, hgseOnline } from './courses.js';
+import { aoc_courses, tools_electives, hgseOnline } from './honours_courses.js';
 import { createOverlay, createCloseButton } from './ui-utils.js';
 import { comp_main_para, bp1, bp2 } from './text_content.js';
 
@@ -16,7 +16,7 @@ export function openToolsPopup(makeBox, courses) {
   popup.appendChild(close);
 
   const desc = document.createElement('p');
-  desc.textContent = 'Students should choose one of the following tools electives and it must be completed before 4th year.';
+  desc.textContent = "Students should complete a total of 6 credits of 'Tools' electives. Consult credit exclusion list before choosing 'Tools'.";
   popup.appendChild(desc);
 
   tools_electives.forEach(c => {

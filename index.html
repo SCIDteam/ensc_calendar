@@ -4,170 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ENSC Program Information</title>
-    <style>
-        * { box-sizing: border-box; }
-        
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            background: #f9fafb;
-            color: #333;
-            line-height: 1.6;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .container {
-            background: #fff;
-            border-radius: 12px;
-            padding: 10px 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-            border: 1px solid #808080;
-        }
-
-        h1 {
-            font-size: 28px;
-            margin-bottom: 10px;
-            text-align: center;
-            color: #333;
-            flex: 1;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1;
-        }
-
-        h2 {
-            color: #333;
-            border-left: 4px solid #0369a1;
-            padding-left: 15px;
-            margin-top: 35px;
-            margin-bottom: 20px;
-            font-size: 18px;
-            font-weight: 600;
-        }
-
-        .intro {
-            background: #f1f5f9;
-            padding: 25px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            border: 2px solid transparent;
-        }
-
-        .concentration-item {
-            background: #f1f5f9;
-            margin: 15px 0;
-            padding: 20px;
-            border-radius: 10px;
-            border: 2px solid transparent;
-            transition: border-color 0.3s ease;
-        }
-
-        .concentration-item:hover {
-            border-color: #3b82f6;
-        }
-
-        .concentration-title {
-            font-weight: bold;
-            color: #333;
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
-
-        .concentration-desc {
-            color: #555;
-            line-height: 1.7;
-            font-size: 14px;
-        }
-
-        .credit-info {
-            background: #f1f5f9;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 25px;
-            border: 2px solid transparent;
-        }
-
-        .highlight {
-            background: #e0f2fe;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-weight: 500;
-            color: #0369a1;
-        }
-
-        .note {
-            font-style: italic;
-            color: #666;
-            font-size: 14px;
-            margin-top: 10px;
-            padding: 10px;
-            background: #f8f9fa;
-            border-left: 3px solid #0369a1;
-            border-radius: 4px;
-        }
-
-        .calendar-button {
-            display: inline-block;
-            background: #e0f2fe;
-            color: #0369a1;
-            padding: 12px 20px;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 16px;
-            text-align: center;
-            margin: 10px auto;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-
-        .calendar-button:hover {
-            background: #0369a1;
-            color: #fff;
-        }
-
-        .button-container {
-            text-align: center;
-            margin: 10px 0;
-        }
-
-        .button-container-top {
-            text-align: center;
-            margin: 10px 5px 10px auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        p {
-            margin-bottom: 15px;
-            color: #333;
-        }
-
-        strong {
-            color: #333;
-            font-weight: bold;
-        }
-
-        .header-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            position: relative;
-        }
-    </style>
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
     <div class="container">
 
-        <div class="header-row">
-            <h1>Bachelor of Science in Environmental Sciences (ENSC)</h1>
-            <div class="button-container-top">
-                <a href="calendar.html" class="calendar-button">📅 View Course Offerings</a>
-            </div>
-        </div>    
+        <h1>Bachelor of Science in Environmental Sciences (ENSC)</h1>
+            
+        <div class="button-container">
+            <a href="major.html" class="calendar-button">📅 View Major Course Offerings</a>
+            <a href="honours.html" class="calendar-button">📅 View Honours Course Offerings</a>
+        </div>
         
         <div class="intro">
             <p><strong>Hello and welcome to the recently renewed Bachelor of Science in Environmental Sciences (ENSC) program!</strong></p>
@@ -251,7 +98,8 @@
         </div>
 
         <div class="button-container">
-            <a href="calendar.html" class="calendar-button">📅 View Course Offerings</a>
+            <a href="major.html" class="calendar-button">📅 View Major Course Offerings</a>
+            <a href="honours.html" class="calendar-button">📅 View Honours Course Offerings</a>
         </div>
     </div>
 </body>

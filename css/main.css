@@ -145,7 +145,7 @@ li { margin-bottom: 6px; }
 .course-column-1::-webkit-scrollbar-track {
   background: #f0f0f0;
   border-radius: 12px;
-  margin: 6px; /* optional: adds padding around the thumb */
+  margin: 6px;
 }
 
 /* the draggable thumb */
