@@ -125,7 +125,7 @@ export function openColumnPopup(col, courses) {
   pop.querySelectorAll('.course-box').forEach(box => {
     const code = box.dataset.code;
     if (code === 'TOOLS_ELECTIVE' || code === 'AOC_REQUIREMENT' || code === 'COMP_STUDIES') {
-      box.querySelector('.course-desc').textContent = `Close this popup and click on the box from the `;
+      box.querySelector('.course-desc').textContent = `Close this popup and click on the box from the main page for details.`;
       return
     };
     const c = courses[code] || {};

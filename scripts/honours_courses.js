@@ -2,18 +2,17 @@
 export const calendar_courses = {
   1: [
     "BIOL_V 121",
-    ["CHEM_V 121", "CHEM_V 111", "CHEM_V 141"],
     "CHEM_V 123",
     "DSCI_V 100",
     "ENVR_V 100",
+    "SCIE_V 113",
+    ["CHEM_V 121", "CHEM_V 111", "CHEM_V 141"],
     ["MATH_V 100", "MATH_V 180", "MATH_V 120"],
     ["MATH_V 101", "MATH_V 121"],
-    "SCIE_V 113",
     "3 Credits of PHYS 100-level (Excluding PHYS 100 and PHYS 170)",
     "4 Credits of Electives"
   ],
   2: [
-    "One 200-level BIOL_V OR CHEM_V Course",
     "ENVR_V 200",
     "ENVR_V 205", 
     "ENVR_V 240",
@@ -21,6 +20,7 @@ export const calendar_courses = {
     ["STAT_V 200", "STAT_V 201", "BIOL_V 300"],
     "6 Credits of Area of Concentration Courses",
     "3 Credits of Tools Electives",
+    "One 200-level BIOL_V OR CHEM_V Course",
     "8 Credits of Electives"
   ],
   "3/4": [
@@ -29,8 +29,8 @@ export const calendar_courses = {
     "ENVR_V 350", 
     "ENVR_V 449",
     "ENVR_V 450",
-    ["ENVR_V 410", "ENVR_V 420", "ENVR_V 430", "ENVR_V 440"],
     "EOSC_V 345",
+    ["ENVR_V 410", "ENVR_V 420", "ENVR_V 430", "ENVR_V 440"],
     "18 Credits of Area of Concentration Courses",
     "9 Credits of Complementary Studies Courses",
     "3 Credits of Tools Electives",
