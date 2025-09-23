@@ -55,8 +55,8 @@ function renderCalendar() {
   courseGrid.innerHTML = '';
 
   const prereqSnippet = txt => {
-    const i = txt.search(/Prerequisite|Not Open/i);
-    return i >= 0 ? txt.slice(i) : '';
+    const i = txt.search(/Prerequisite|Not Open|Enrolment Limited|Corequisite/i);
+    return i >= 0 ? txt.slice(i) : 'No prerequisites or corequisites.';
   };
 
   const makeBox = code => {
@@ -68,6 +68,8 @@ function renderCalendar() {
                     `<div class="course-desc">${prereqSnippet(data.desc || '')}</div>`;
     return box;
   };
+
+  // Remove requisite information from non-singular courses (Example Electives)
 
   yearMapping.forEach(({ key, label }) => {
     const raw = calendar_courses[key] || [];
@@ -94,7 +96,7 @@ function renderCalendar() {
         const b = document.createElement('div');
         b.className = 'course-box';
         b.dataset.code = 'TOOLS_ELECTIVE';
-        b.innerHTML = '<div class="course-title">Tools Elective</div><div class="course-desc">Click to see more information.</div>';
+        b.innerHTML = `<div class="course-title">${item}</div><div class="course-desc">Click to see more information.</div>`;
         b.addEventListener('click', () => openToolsPopup(makeBox, courses));
         col.appendChild(b);
       }
@@ -103,7 +105,7 @@ function renderCalendar() {
         const b = document.createElement('div');
         b.className = 'course-box';
         b.dataset.code = 'COMP_STUDIES';
-        b.innerHTML = `<div class="course-title">${item}</div><div class="course-desc">Click to view courses.</div>`;
+        b.innerHTML = `<div class="course-title">${item}</div><div class="course-desc">Click to see more information.</div>`;
         b.addEventListener('click', () => openCompStudiesPopup());
         col.appendChild(b);
       }
@@ -112,14 +114,18 @@ function renderCalendar() {
         const b = document.createElement('div');
         b.className = 'course-box';
         b.dataset.code = 'AOC_REQUIREMENT';
-        b.innerHTML = `<div class="course-title">${item}</div><div class="course-desc">Click to view requirements.</div>`;
+        b.innerHTML = `<div class="course-title">${item}</div><div class="course-desc">Click to see more information.</div>`;
         b.addEventListener('click', () => openAocPopup(selectedAoc, renderAocCourses));
         col.appendChild(b);
       }
       
       else {
+        const course_regex = /^[A-Z]{3,4}_V \d+$/
         const b = makeBox(item);
         if (b) col.appendChild(b);
+        if (!course_regex.test(item)) {
+          b.innerHTML = b.innerHTML.replace(/<div class="course-desc">[\s\S]*?<\/div>/, "<div class='course-desc'></div>",);
+        };
       }
 
     });
